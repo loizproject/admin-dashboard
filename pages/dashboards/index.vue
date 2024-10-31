@@ -1,6 +1,5 @@
 <template>
-  <div>
-  </div>
+  <div></div>
 </template>
 
 <script setup>
@@ -9,6 +8,6 @@ import { onBeforeMount } from "vue";
 const router = useRouter();
 
 onBeforeMount(() => {
-  router.push("/dashboards");
+  router.push("/dashboards/dashboard");
 });
 </script>
