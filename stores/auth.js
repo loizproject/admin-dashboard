@@ -7,6 +7,7 @@ import {
 import { HTTP_METHODS } from "~/utils/constants";
 import { useLoadingStore } from "~/stores/loading";
 import { useToastStore } from "~/stores/toast";
+import { useServicesStore } from "~/stores/services";
 
 export const useAuthStore = defineStore({
   id: "auth",
@@ -39,7 +40,7 @@ export const useAuthStore = defineStore({
         const response = data._rawValue;
         this.isLoggedIn = true;
         this.token = response.authorization;
-        this.role = response.role
+        this.role = response.role;
         const accessToken = useCookie("accessToken");
         accessToken.value = this.token.token;
         return true;
@@ -61,12 +62,14 @@ export const useAuthStore = defineStore({
       }
     },
     logout() {
+      const servicesStore = useServicesStore();
       this.token = null;
       this.isLoggedIn = false;
       this.user = "";
       localStorage.clear();
       const accessToken = useCookie("accessToken");
       accessToken.value = null;
+      servicesStore.$reset();
     },
   },
   persist: true,
