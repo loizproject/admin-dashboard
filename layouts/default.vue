@@ -2,9 +2,9 @@
 <template>
   <div class="">
     <Navbar class="h-[50px]" />
-    <div class="lg:flex lg:justify-between max-w-[1440px] mx-auto">
+    <div class="lg:flex lg:justify-between">
       <Sidebar />
-      <div class="h-full lg:w-[calc(100%-230px)]">
+      <div class="h-full lg:w-[calc(100%-230px)] pt-[50px]">
         <div class="bg-bodybg">
           <slot></slot>
         </div>

@@ -116,11 +116,11 @@ const typeClasses = computed((): string => {
   switch (props.kind) {
     case "primary-round":
       result =
-        "bg-primary text-white rounded-full flex justify-center hover:opacity-90";
+        "bg-gradient-bg text-white rounded-full flex justify-center hover:opacity-90";
       break;
     case "primary-square":
       result =
-        "bg-primary text-white rounded-lg flex justify-center hover:opacity-90";
+        "bg-gradient-bg text-white rounded-lg flex justify-center hover:opacity-90";
       break;
     case "border":
       result =
@@ -139,11 +139,11 @@ const typeClasses = computed((): string => {
       break;
     case "disabled-square":
       result =
-        "bg-primary text-white rounded-lg flex justify-center hover:opacity-90 bg-opacity-50 cursor-not-allowed";
+        "bg-gradient-bg text-white rounded-lg flex justify-center hover:opacity-90 bg-opacity-50 cursor-not-allowed";
       break;
     case "disabled-round":
       result =
-        "bg-primary text-white rounded-full flex justify-center hover:opacity-90 bg-opacity-50 cursor-not-allowed";
+        "bg-gradient-bg text-white rounded-full flex justify-center hover:opacity-90 bg-opacity-50 cursor-not-allowed";
       break;
 
     default:
