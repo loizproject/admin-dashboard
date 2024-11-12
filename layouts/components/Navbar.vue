@@ -86,18 +86,19 @@ const fetchUser = async () => {
     await authStore.getUser();
     user.value = authStore.user;
   } catch (error) {
-    console.error("Error fetching user:", error);
+    console.log(error, 9);
   } finally {
     loading.value = false;
   }
 };
 
-const logout = () => {
-  authStore.logout();
+const logout = async () => {
+  await authStore.logout();
   router.push("/auth/login");
 };
 
 onMounted(() => {
   fetchUser();
+  authStore.checkRefreshOnLoad();
 });
 </script>
