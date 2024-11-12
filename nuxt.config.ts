@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     "primevue/resources/themes/aura-light-green/theme.css",
     "primevue/resources/primevue.min.css",
     "primeicons/primeicons.css",
+    "@mdi/font/css/materialdesignicons.min.css",
   ],
   build: {
     transpile: ["primevue"],
@@ -18,8 +19,8 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      API_URL: process.env.API_URL,
-      ENVIRONMENT: process.env.ENVIRONMENT,
+      API_URL: process.env.BASE_URL,
+      ENVIRONMENT: process.env.APP_ENV,
     },
   },
   devtools: { enabled: true },

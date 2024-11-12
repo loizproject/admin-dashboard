@@ -12,7 +12,7 @@ onBeforeMount(() => {
   if (authStore.role === "customer") {
     router.push("/user");
   } else {
-    router.push("/admin");
+    router.push("/admin/dashboard");
   }
 });
 </script>
