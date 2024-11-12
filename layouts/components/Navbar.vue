@@ -86,7 +86,7 @@ const fetchUser = async () => {
     await authStore.getUser();
     user.value = authStore.user;
   } catch (error) {
-    console.error("Error fetching user:", error);
+    console.log(error, 9);
   } finally {
     loading.value = false;
   }
@@ -99,5 +99,6 @@ const logout = () => {
 
 onMounted(() => {
   fetchUser();
+  authStore.checkRefreshOnLoad();
 });
 </script>
