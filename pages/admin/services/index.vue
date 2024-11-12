@@ -67,6 +67,19 @@
                 </div>
               </div>
             </div>
+            <div class="w-full flex space-x-4 items-center justify-end">
+              <div
+                class="border border-red-500 text-red-500 cursor-pointer flex space-x-2 items-center px-3 py-1 rounded-lg"
+              >
+                <i class="mdi mdi-close-circle-outline mt-0.5 text-lg"></i>
+                <p>Delete</p>
+              </div>
+              <div
+                class="bg-gradient-bg cursor-pointer text-white flex justify-between items-center px-6 py-2.5 rounded-lg"
+              >
+                <p>Update</p>
+              </div>
+            </div>
             <!-- {{ rowIndex }}
             <p><strong>Service Details:</strong> {{ row.name }}</p>
             <p><strong>Price:</strong> {{ row.price }}</p>

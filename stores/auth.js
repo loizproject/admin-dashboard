@@ -96,23 +96,33 @@ export const useAuthStore = defineStore({
         if (timeRemaining > 0) {
           this.startRefreshTimer();
         } else {
-          this.logout(); 
+          this.logout();
         }
       }
     },
+    async logout(payload) {
+      const { error, data } = await useHttpRequest(
+        "/logout",
+        HTTP_METHODS.POST,
+        payload
+      );
+      if (noError(error)) {
+        const router = useRouter();
+        const servicesStore = useServicesStore();
+        this.token = null;
+        this.isLoggedIn = false;
+        this.user = null;
+        localStorage.clear();
+        const accessToken = useCookie("accessToken");
+        accessToken.value = null;
+        if (this.refreshInterval) clearInterval(this.refreshInterval);
+        servicesStore.$reset();
+        router.push("/auth/login");
 
-    logout() {
-      const router = useRouter();
-      const servicesStore = useServicesStore();
-      this.token = null;
-      this.isLoggedIn = false;
-      this.user = null;
-      localStorage.clear();
-      const accessToken = useCookie("accessToken");
-      accessToken.value = null;
-      if (this.refreshInterval) clearInterval(this.refreshInterval);
-      servicesStore.$reset();
-      router.push("/auth/login");
+        return true;
+      }
+      useErrorHandler(error);
+      return false;
     },
   },
   persist: true,
