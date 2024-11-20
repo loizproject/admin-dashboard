@@ -6,7 +6,6 @@ const useHttpRequest = async (url, method = HTTP_METHODS.GET, body) => {
 
   // Check if accessToken is available
   const token = accessToken?.value;
-  console.log("Token:", token); // Verify token value
 
   return useFetch(url, {
     baseURL: config.public.API_URL,

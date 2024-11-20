@@ -122,7 +122,19 @@ export const useAuthStore = defineStore({
         return true;
       }
       useErrorHandler(error);
-      return false;
+      const router = useRouter();
+      const servicesStore = useServicesStore();
+      this.token = null;
+      this.isLoggedIn = false;
+      this.user = null;
+      localStorage.clear();
+      const accessToken = useCookie("accessToken");
+      accessToken.value = null;
+      if (this.refreshInterval) clearInterval(this.refreshInterval);
+      servicesStore.$reset();
+      router.push("/auth/login");
+
+      return true;
     },
   },
   persist: true,

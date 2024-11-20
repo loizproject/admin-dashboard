@@ -4,7 +4,7 @@
       class="py-3 fixed hidden lg:flex lg:flex-col w-[230px] h-[calc(100%-50px)] mt-[50px] border-r bg-sidebg"
     >
       <div class="px-5 hidden lg:flex">
-        <nuxt-link to="/dashboards/home">
+        <nuxt-link to="/admin/dashboard">
           <img src="~/assets/images/logo.svg" alt="" />
         </nuxt-link>
       </div>
@@ -80,7 +80,7 @@
       >
         <div class="my-20 w-full">
           <div class="px-5 hidden lg:flex">
-            <nuxt-link to="/dashboards/home">
+            <nuxt-link to="/admin/dashboard">
               <img src="~/assets/images/logo.svg" alt="" />
             </nuxt-link>
           </div>
@@ -219,8 +219,14 @@ const pages = [
   },
   {
     title: "Settings",
-    path: "/admin/notifications",
+    path: "/admin/settings",
     icon: "mdi-cog-outline",
+    subPages: [
+      {
+        title: "Account Settings",
+        path: "/admin/settings",
+      },
+    ],
   },
 ];
 

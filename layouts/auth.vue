@@ -1,8 +1,23 @@
 <template>
-  <div class="flex flex-col w-full h-screen justify-center items-center p-6 ">
-    <main
-      class="w-full flex flex-col justify-center sm:w-[400px] border border-border self-center p-6"
+  <div
+    class="flex flex-col w-full min-h-screen relative justify-center items-center p-6 bg-bodybg"
+  >
+    <header
+      class="absolute top-3 w-full h-20 flex justify-between items-center p-8"
     >
+      <img src="~/assets/images/logo.svg" alt="" class="w-48" />
+      <div
+        class="flex items-center space-x-2 text-primary text-sm cursor-pointer p-2 rounded-lg bg-transparent border border-transparent"
+        style="
+          background: linear-gradient(#fef3f9, #fef3f9) padding-box,
+            linear-gradient(to right, #4e9cff, #ff0a8e) border-box;
+        "
+      >
+        <p>Visit Website</p>
+        <i class="mdi mdi-arrow-top-right"></i>
+      </div>
+    </header>
+    <main class="flex flex-col justify-center self-center p-6 w-[400px]">
       <slot></slot>
     </main>
 

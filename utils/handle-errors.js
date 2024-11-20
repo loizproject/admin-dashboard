@@ -11,7 +11,9 @@ export const useErrorHandler = (error) => {
     // Check for error code and specific message for unauthorized access
     if (
       errorDetails?.code === 401 &&
-      errorDetails?.message === "Invalid credentials. Please try again"
+      (errorDetails?.message === "Invalid credentials. Please try again" ||
+        errorDetails.message ===
+          "You must be logged in to perform this action, please login and try again")
     ) {
       authStore.logout();
       toastStore.setMessage({

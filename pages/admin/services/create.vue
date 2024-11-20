@@ -1,5 +1,5 @@
 <template>
-  <div class="p-6 text-header h-screen">
+  <div class="p-6 text-header min-h-screen">
     <div class="flex justify-between items-center">
       <div class="space-y-4">
         <h1 class="text-2xl">Create Service</h1>

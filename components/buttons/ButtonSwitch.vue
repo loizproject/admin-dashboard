@@ -1,6 +1,6 @@
 <template>
   <div class="w-full">
-    <div class="flex justify-between w-full bg-white">
+    <div class="flex justify-between w-full">
       <div class="w-full">
         <div class="flex w-full">
           <button
@@ -8,10 +8,11 @@
             v-for="(button, index) in buttons"
             :key="index"
             :class="[
-              'mx-2',
+              index === 0 ? 'ml-0 mr-4' : 'mx-4',
+              'px-2 py-1 text-sm',
               activeButton === index
-                ? ' text-header  rounded-full'
-                : 'text-bodytext py-2.5',
+                ? ' text-primary border-b-2 border-primary'
+                : 'text-bodytext',
             ]"
             @click="toggleContent(index)"
           >
@@ -20,7 +21,7 @@
         </div>
       </div>
     </div>
-    <div class="mt-5 md:p-4">
+    <div class="mt-5">
       <component :is="activeComponent" />
     </div>
   </div>
